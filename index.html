@@ -713,6 +713,46 @@
     .wa-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(37,211,102,0.45); }
     .wa-icon { width: 22px; height: 22px; }
 
+    /* ─── ANIMATIONS ──────────────────────────────────────── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    /* Hero entrance */
+    .hero-badge    { animation: fadeInUp 0.7s ease both; animation-delay: 0.1s; }
+    .hero-title    { animation: fadeInUp 0.7s ease both; animation-delay: 0.25s; }
+    .hero-subtitle { animation: fadeInUp 0.7s ease both; animation-delay: 0.35s; }
+    .hero-desc     { animation: fadeInUp 0.7s ease both; animation-delay: 0.45s; }
+    .hero-actions  { animation: fadeInUp 0.7s ease both; animation-delay: 0.55s; }
+    .hero-stats    { animation: fadeIn   0.9s ease both; animation-delay: 0.75s; }
+
+    /* Hero image float */
+    .hero-image { animation: floatY 5s ease-in-out infinite; }
+
+    /* Scroll reveal base state */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
     /* ─── RESPONSIVE ───────────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 14px 5%; }
@@ -1181,6 +1221,27 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Scroll reveal con IntersectionObserver
+    const revealEls = document.querySelectorAll('.product-card, .value-item, .proceso-item, .section-header, .historia-text, .historia-images, .gallery-item');
+    revealEls.forEach((el, i) => {
+      el.classList.add('reveal');
+      // stagger por posición dentro del mismo padre
+      const siblings = Array.from(el.parentElement.children).filter(c => c.classList.contains('reveal'));
+      const idx = siblings.indexOf(el);
+      if (idx === 1) el.classList.add('reveal-delay-1');
+      else if (idx === 2) el.classList.add('reveal-delay-2');
+      else if (idx === 3) el.classList.add('reveal-delay-3');
+      else if (idx >= 4) el.classList.add('reveal-delay-4');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 
   <!-- WHATSAPP FLOTANTE -->
   <div class="wa-float">
