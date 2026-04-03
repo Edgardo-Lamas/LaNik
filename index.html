@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DH6MSEKGQW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DH6MSEKGQW');
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LaNik — Diseño & Tejido Artesanal Urbano</title>
@@ -1386,6 +1395,14 @@
   </footer>
 
   <script>
+    // GA4 — trackear clicks en WhatsApp e Instagram
+    document.querySelectorAll('a[href*="wa.me"]').forEach(el => {
+      el.addEventListener('click', () => gtag('event', 'click_whatsapp', { event_category: 'contacto' }));
+    });
+    document.querySelectorAll('a[href*="instagram.com"]').forEach(el => {
+      el.addEventListener('click', () => gtag('event', 'click_instagram', { event_category: 'contacto' }));
+    });
+
     // Gallery scroll progress bar
     const galleryScroll = document.querySelector('.gallery-scroll');
     const galleryBar = document.getElementById('galleryBar');
