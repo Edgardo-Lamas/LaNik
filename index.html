@@ -774,9 +774,81 @@
     .reveal-delay-4 { transition-delay: 0.4s; }
 
     /* ─── RESPONSIVE ───────────────────────────────────────── */
+    /* ─── HAMBURGER ───────────────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 101;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 57px; left: 0; right: 0;
+      background: rgba(26,26,26,0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 24px 5%;
+      z-index: 99;
+      flex-direction: column;
+      gap: 4px;
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-mobile-menu.open {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .nav-mobile-menu a {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-mobile-menu a:last-child { border-bottom: none; }
+    .nav-mobile-menu a:hover { color: var(--terracota); }
+    .nav-mobile-menu .nav-cta {
+      margin-top: 8px;
+      background: var(--terracota);
+      color: var(--white) !important;
+      padding: 14px 24px;
+      border-radius: 40px;
+      text-align: center;
+      border-bottom: none !important;
+    }
+
     @media (max-width: 900px) {
       nav { padding: 14px 5%; }
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-mobile-menu { display: flex; }
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .hero-image { display: none; }
       .historia-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -803,7 +875,18 @@
       <li><a href="#proceso">Proceso</a></li>
       <li><a href="#contacto" class="nav-cta">Consultar</a></li>
     </ul>
+    <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MENÚ MOBILE -->
+  <div class="nav-mobile-menu" role="navigation" aria-label="Menú mobile">
+    <a href="#coleccion">Colección</a>
+    <a href="#historia">Historia</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#contacto" class="nav-cta">Consultar</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -1243,6 +1326,22 @@
   </footer>
 
   <script>
+    // Hamburger menu
+    const hamburger = document.querySelector('.nav-hamburger');
+    const mobileMenu = document.querySelector('.nav-mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
     // Scroll reveal con IntersectionObserver
     const revealEls = document.querySelectorAll('.product-card, .value-item, .proceso-item, .section-header, .historia-text, .historia-images, .gallery-item');
     revealEls.forEach((el, i) => {
