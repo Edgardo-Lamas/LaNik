@@ -45,6 +45,7 @@
       --font-body: 'Inter', sans-serif;
     }
     html { scroll-behavior: smooth; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
     body {
       font-family: var(--font-body);
       background-color: var(--charcoal);
@@ -377,6 +378,19 @@
       padding: 5px 10px;
       border-radius: 6px;
     }
+    /* Últimas unidades: badge naranja + borde de alerta */
+    .product-card.low-stock {
+      border-color: rgba(196, 136, 42, 0.4);
+      box-shadow: 0 0 0 1px rgba(196,136,42,0.2);
+    }
+    .product-card.low-stock .product-badge {
+      background: var(--ocre);
+      animation: pulse-badge 2s ease-in-out infinite;
+    }
+    @keyframes pulse-badge {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.7; }
+    }
     .product-info {
       padding: 22px 22px 24px;
     }
@@ -579,6 +593,41 @@
       filter: brightness(0.9) contrast(1.1);
     }
     .gallery-item:hover img { transform: scale(1.07); }
+
+    .gallery-hint {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0 5% 16px;
+    }
+    .gallery-hint svg { opacity: 0.5; animation: nudge 1.6s ease-in-out infinite; }
+    @keyframes nudge {
+      0%, 100% { transform: translateX(0); }
+      50%       { transform: translateX(6px); }
+    }
+    .gallery-progress {
+      height: 2px;
+      background: rgba(255,255,255,0.08);
+      margin: 12px 5% 0;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .gallery-progress-bar {
+      height: 100%;
+      background: var(--terracota);
+      border-radius: 2px;
+      width: 20%;
+      transition: width 0.1s linear;
+    }
+    @media (max-width: 900px) {
+      .gallery-hint { display: flex; }
+    }
 
     /* ─── CONTACT / CTA ────────────────────────────────────── */
     #contacto {
@@ -849,8 +898,13 @@
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .nav-mobile-menu { display: flex; }
-      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .hero-image { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero-image {
+        display: block;
+        max-width: 340px;
+        margin: 0 auto;
+      }
+      .hero-img-main { aspect-ratio: 3/2; border-radius: 14px; }
       .historia-inner { grid-template-columns: 1fr; gap: 40px; }
       .historia-images { display: none; }
       .proceso-grid { grid-template-columns: 1fr 1fr; }
@@ -895,6 +949,7 @@
         <div class="hero-badge">Buenos Aires · Tejido 100% artesanal</div>
         <h1 class="hero-title">
           La<span class="accent">Nik</span>
+          <span class="visually-hidden"> — Gorras tejidas artesanales, Buenos Aires</span>
         </h1>
         <p class="hero-subtitle">Diseño & Tejido Artesanal Urbano</p>
         <p class="hero-desc">
@@ -963,7 +1018,7 @@
           <div class="product-footer">
             <div class="product-price">
               <small>desde</small>
-              $18.000
+              $40.000
             </div>
             <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Sage%20Slouch" class="product-cta" target="_blank">Consultar</a>
           </div>
@@ -985,7 +1040,7 @@
           <div class="product-footer">
             <div class="product-price">
               <small>desde</small>
-              $18.000
+              $40.000
             </div>
             <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Stripe%20Classic" class="product-cta" target="_blank">Consultar</a>
           </div>
@@ -1007,7 +1062,7 @@
           <div class="product-footer">
             <div class="product-price">
               <small>desde</small>
-              $20.000
+              $40.000
             </div>
             <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Melange%20Slouch" class="product-cta" target="_blank">Consultar</a>
           </div>
@@ -1028,7 +1083,7 @@
           <div class="product-footer">
             <div class="product-price">
               <small>desde</small>
-              $18.000
+              $40.000
             </div>
             <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Rustic%20Rib" class="product-cta" target="_blank">Consultar</a>
           </div>
@@ -1050,7 +1105,7 @@
           <div class="product-footer">
             <div class="product-price">
               <small>desde</small>
-              $18.000
+              $40.000
             </div>
             <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Ribbed%20Terracota" class="product-cta" target="_blank">Consultar</a>
           </div>
@@ -1071,7 +1126,7 @@
           <div class="product-footer">
             <div class="product-price">
               <small>desde</small>
-              $20.000
+              $40.000
             </div>
             <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Urban%20Blend" class="product-cta" target="_blank">Consultar</a>
           </div>
@@ -1092,16 +1147,16 @@
           <div class="product-footer">
             <div class="product-price">
               <small>desde</small>
-              $18.000
+              $40.000
             </div>
             <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Warm%20Slouch" class="product-cta" target="_blank">Consultar</a>
           </div>
         </div>
       </div>
 
-      <div class="product-card">
+      <div class="product-card low-stock">
         <div class="product-img-wrap">
-          <img src="gorras img/gorro-8.jpeg" alt="Modelo 8" loading="lazy" />
+          <img src="gorras img/gorro-8.jpeg" alt="LaNik — Rusty Stripe, rayas terracota y azul oscuro" loading="lazy" />
           <div class="product-badge">Últimas unidades</div>
         </div>
         <div class="product-info">
@@ -1114,7 +1169,7 @@
           <div class="product-footer">
             <div class="product-price">
               <small>desde</small>
-              $20.000
+              $40.000
             </div>
             <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Rusty%20Stripe" class="product-cta" target="_blank">Consultar</a>
           </div>
@@ -1135,7 +1190,7 @@
           <div class="product-footer">
             <div class="product-price">
               <small>desde</small>
-              $18.000
+              $40.000
             </div>
             <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Deep%20Color%20Rib" class="product-cta" target="_blank">Consultar</a>
           </div>
@@ -1156,7 +1211,7 @@
           <div class="product-footer">
             <div class="product-price">
               <small>desde</small>
-              $22.000
+              $40.000
             </div>
             <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Statement%20Slouch" class="product-cta" target="_blank">Consultar</a>
           </div>
@@ -1249,6 +1304,10 @@
         <h2 class="section-title" style="color:var(--white)">Cada pieza, su propia historia.</h2>
       </div>
     </div>
+    <div class="gallery-hint">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      Deslizá para ver más
+    </div>
     <div class="gallery-scroll">
       <div class="gallery-item"><img src="gorras img/Gorro-1.jpeg" alt="LaNik — Sage Slouch, gorra tejida verde sage" loading="lazy" /></div>
       <div class="gallery-item"><img src="gorras img/gorro-2.jpeg" alt="LaNik — gorra tejida artesanal, detalle de tejido" loading="lazy" /></div>
@@ -1261,6 +1320,7 @@
       <div class="gallery-item"><img src="gorras img/gorro-9.jpeg" alt="LaNik — Deep Color Rib, tejido ribbed alta densidad" loading="lazy" /></div>
       <div class="gallery-item"><img src="gorras img/gorro-10.jpeg" alt="LaNik — Statement Slouch, serie limitada" loading="lazy" /></div>
     </div>
+    <div class="gallery-progress"><div class="gallery-progress-bar" id="galleryBar"></div></div>
   </section>
 
   <!-- CONTACTO / CTA -->
@@ -1326,6 +1386,17 @@
   </footer>
 
   <script>
+    // Gallery scroll progress bar
+    const galleryScroll = document.querySelector('.gallery-scroll');
+    const galleryBar = document.getElementById('galleryBar');
+    if (galleryScroll && galleryBar) {
+      galleryScroll.addEventListener('scroll', () => {
+        const max = galleryScroll.scrollWidth - galleryScroll.clientWidth;
+        const pct = max > 0 ? (galleryScroll.scrollLeft / max) * 100 : 0;
+        galleryBar.style.width = Math.max(10, pct) + '%';
+      });
+    }
+
     // Hamburger menu
     const hamburger = document.querySelector('.nav-hamburger');
     const mobileMenu = document.querySelector('.nav-mobile-menu');
