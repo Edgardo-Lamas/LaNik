@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LaNik — Diseño & Tejido Artesanal Urbano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terracota: #B5432A;
+      --terracota-light: #C9573C;
+      --charcoal: #1A1A1A;
+      --charcoal-mid: #2C2C2C;
+      --sage: #8FAF9A;
+      --crema: #F5EFE0;
+      --crema-dark: #EDE4CF;
+      --azul: #7BACC4;
+      --ocre: #C4882A;
+      --white: #FFFFFF;
+      --font-head: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--charcoal);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ──────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+      background: rgba(26, 26, 26, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .nav-logo {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--terracota); }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-head);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--terracota); }
+    .nav-cta {
+      background: var(--terracota);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: var(--terracota-light); color: var(--white) !important; }
+
+    /* ─── HERO ─────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+      background: var(--charcoal);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(181,67,42,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(143,175,154,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-text {}
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(181,67,42,0.15);
+      border: 1px solid rgba(181,67,42,0.4);
+      color: var(--terracota);
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 40px;
+      margin-bottom: 28px;
+    }
+    .hero-badge::before { content: '●'; font-size: 0.5rem; }
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .hero-title .accent { color: var(--terracota); }
+    .hero-subtitle {
+      font-family: var(--font-head);
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      font-weight: 300;
+      color: var(--sage);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 44px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--terracota);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 15px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--terracota-light); transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.7);
+      font-family: var(--font-head);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 2px;
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .btn-secondary:hover { color: var(--white); border-color: var(--white); }
+    .hero-image {
+      position: relative;
+    }
+    .hero-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+      filter: contrast(1.05) brightness(0.95);
+    }
+    .hero-img-overlay {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: rgba(26,26,26,0.85);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-img-tag {
+      font-family: var(--font-head);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--sage);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .hero-img-title {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-top: 4px;
+    }
+    .hero-badge-ltd {
+      background: var(--terracota);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 50px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-item {}
+    .stat-number {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--terracota);
+      display: block;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ─── SECTION BASE ─────────────────────────────────────── */
+    section { padding: 100px 5%; }
+    .section-tag {
+      font-family: var(--font-head);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terracota);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+    .section-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 560px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    /* ─── PRODUCTOS ────────────────────────────────────────── */
+    #coleccion {
+      background: var(--charcoal-mid);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .product-card {
+      background: var(--charcoal);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .product-img-wrap {
+      position: relative;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+      filter: brightness(0.95) contrast(1.05);
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.05); }
+    .product-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--terracota);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+    .product-info {
+      padding: 22px 22px 24px;
+    }
+    .product-name {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .product-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+      margin-bottom: 18px;
+      font-weight: 300;
+    }
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .product-price {
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--crema);
+    }
+    .product-price small {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.4);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .product-cta {
+      background: rgba(181,67,42,0.15);
+      border: 1px solid rgba(181,67,42,0.4);
+      color: var(--terracota);
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+    }
+    .product-cta:hover {
+      background: var(--terracota);
+      color: var(--white);
+    }
+    .product-colors {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .color-tag {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.07);
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+
+    /* ─── HISTORIA ─────────────────────────────────────────── */
+    #historia {
+      background: var(--crema);
+    }
+    #historia .section-title { color: var(--charcoal); }
+    #historia .section-desc { color: rgba(44,44,44,0.7); }
+    .historia-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .historia-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .historia-img {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .historia-img:first-child { margin-top: 40px; }
+    .historia-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.05);
+    }
+    .historia-text {}
+    .values-list {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .value-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .value-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--terracota);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .value-body {}
+    .value-title {
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+    .value-desc {
+      font-size: 0.85rem;
+      color: rgba(44,44,44,0.65);
+      line-height: 1.6;
+    }
+
+    /* ─── PROCESO ──────────────────────────────────────────── */
+    #proceso {
+      background: var(--charcoal);
+    }
+    .proceso-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .proceso-step {
+      padding: 32px 28px;
+      background: var(--charcoal-mid);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.07);
+      position: relative;
+    }
+    .step-num {
+      font-family: var(--font-head);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: rgba(181,67,42,0.2);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .step-title {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .step-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+    }
+
+    /* ─── GALERÍA ──────────────────────────────────────────── */
+    #galeria {
+      background: var(--charcoal-mid);
+      padding: 80px 0;
+    }
+    #galeria .section-header {
+      padding: 0 5%;
+    }
+    .gallery-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 0 5% 20px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .gallery-scroll::-webkit-scrollbar { display: none; }
+    .gallery-item {
+      flex: 0 0 240px;
+      aspect-ratio: 3/4;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+      filter: brightness(0.9) contrast(1.1);
+    }
+    .gallery-item:hover img { transform: scale(1.07); }
+
+    /* ─── CONTACT / CTA ────────────────────────────────────── */
+    #contacto {
+      background: var(--terracota);
+      text-align: center;
+      padding: 100px 5%;
+    }
+    #contacto .section-tag { color: rgba(255,255,255,0.7); }
+    #contacto .section-title { color: var(--white); text-align: center; margin: 0 auto 16px; }
+    .contact-desc {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 520px;
+      margin: 0 auto 48px;
+      line-height: 1.8;
+    }
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      color: var(--terracota);
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+    .btn-outline-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 15px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.6);
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+
+    /* ─── FOOTER ───────────────────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      padding: 60px 5% 40px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand .brand-name {
+      font-family: var(--font-head);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .footer-brand .brand-name span { color: var(--terracota); }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      max-width: 300px;
+      margin-bottom: 24px;
+    }
+    .social-links { display: flex; gap: 12px; }
+    .social-link {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.25s;
+    }
+    .social-link:hover { background: var(--terracota); }
+    .footer-col h4 {
+      font-family: var(--font-head);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--terracota); }
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-bottom span { color: var(--terracota); }
+
+    /* ─── WHATSAPP FLOAT ───────────────────────────────────── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 200;
+    }
+    .wa-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 13px 22px 13px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .wa-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(37,211,102,0.45); }
+    .wa-icon { width: 22px; height: 22px; }
+
+    /* ─── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 14px 5%; }
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-image { display: none; }
+      .historia-inner { grid-template-columns: 1fr; gap: 40px; }
+      .historia-images { display: none; }
+      .proceso-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 70px 5%; }
+      .proceso-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .hero-stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">La<span>Nik</span></a>
+    <ul class="nav-links">
+      <li><a href="#coleccion">Colección</a></li>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#contacto" class="nav-cta">Consultar</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">Buenos Aires · Tejido 100% artesanal</div>
+        <h1 class="hero-title">
+          La<span class="accent">Nik</span>
+        </h1>
+        <p class="hero-subtitle">Diseño & Tejido Artesanal Urbano</p>
+        <p class="hero-desc">
+          Gorras tejidas a mano, pieza por pieza. Series limitadas con identidad propia.
+          Cuando se agota, se agota.
+        </p>
+        <div class="hero-actions">
+          <a href="#coleccion" class="btn-primary">
+            Ver Colección
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/5491100000000?text=Hola%20LaNik!%20Me%20interesa%20conocer%20los%20modelos%20disponibles." class="btn-secondary" target="_blank">
+            Consultar por WhatsApp →
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Artesanal</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">Serie<br>Ltd.</span>
+            <span class="stat-label">Edición limitada</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">BsAs</span>
+            <span class="stat-label">Hecho en Argentina</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="gorras img/Gorro-1.jpeg" alt="LaNik Gorra Tejida Sage" class="hero-img-main" />
+        <div class="hero-img-overlay">
+          <div>
+            <div class="hero-img-tag">Disponible ahora</div>
+            <div class="hero-img-title">Sage Slouch</div>
+          </div>
+          <div class="hero-badge-ltd">Serie Ltd.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLECCIÓN -->
+  <section id="coleccion">
+    <div class="section-header" style="max-width:1200px; margin: 0 auto 60px;">
+      <div>
+        <span class="section-tag">Colección Actual</span>
+        <h2 class="section-title" style="color:var(--white)">Cada gorra,<br>una pieza única.</h2>
+      </div>
+      <p class="section-desc">Series limitadas. Tejidas a mano con hilos de calidad premium. Cuando se agota, no hay reposición.</p>
+    </div>
+    <div class="products-grid" style="max-width:1200px; margin:0 auto;">
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="gorras img/Gorro-1.jpeg" alt="Sage Slouch" loading="lazy" />
+          <div class="product-badge">Disponible</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Sage Slouch</div>
+          <div class="product-colors">
+            <span class="color-tag">Verde Sage</span>
+          </div>
+          <div class="product-desc">Forma holgada con textura geométrica. Punto estructurado, caída natural.</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <small>desde</small>
+              $18.000
+            </div>
+            <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Sage%20Slouch" class="product-cta" target="_blank">Consultar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="gorras img/gorro-2.jpeg" alt="Modelo 2" loading="lazy" />
+          <div class="product-badge">Disponible</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Stripe Classic</div>
+          <div class="product-colors">
+            <span class="color-tag">Terracota</span>
+            <span class="color-tag">Gris</span>
+          </div>
+          <div class="product-desc">Rayas horizontales. Caída holgada con estructura firme en la base.</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <small>desde</small>
+              $18.000
+            </div>
+            <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Stripe%20Classic" class="product-cta" target="_blank">Consultar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="gorras img/gorro-3.jpeg" alt="Modelo 3" loading="lazy" />
+          <div class="product-badge">Serie Limitada</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Melange Slouch</div>
+          <div class="product-colors">
+            <span class="color-tag">Terracota</span>
+            <span class="color-tag">Teal</span>
+          </div>
+          <div class="product-desc">Efecto melange multicolor. Textura irregular que lo hace único entre todos.</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <small>desde</small>
+              $20.000
+            </div>
+            <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Melange%20Slouch" class="product-cta" target="_blank">Consultar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="gorras img/gorro-4.jpeg" alt="Modelo 4" loading="lazy" />
+          <div class="product-badge">Disponible</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Rustic Rib</div>
+          <div class="product-colors">
+            <span class="color-tag">Rústico</span>
+          </div>
+          <div class="product-desc">Punto rústico con textura pronunciada. Estética raw y urbana.</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <small>desde</small>
+              $18.000
+            </div>
+            <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Rustic%20Rib" class="product-cta" target="_blank">Consultar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="gorras img/gorro-5.jpeg" alt="Modelo 5" loading="lazy" />
+          <div class="product-badge">Disponible</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Ribbed Terracota</div>
+          <div class="product-colors">
+            <span class="color-tag">Terracota</span>
+            <span class="color-tag">Gris</span>
+          </div>
+          <div class="product-desc">Punto 2x2 ribbed clásico, bicolor. Definición perfecta en cada vuelta.</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <small>desde</small>
+              $18.000
+            </div>
+            <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Ribbed%20Terracota" class="product-cta" target="_blank">Consultar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="gorras img/gorro-6.jpeg" alt="Modelo 6" loading="lazy" />
+          <div class="product-badge">Serie Limitada</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Urban Blend</div>
+          <div class="product-colors">
+            <span class="color-tag">Mix Urbano</span>
+          </div>
+          <div class="product-desc">Combinación de puntos y colores. Diseño exclusivo, pocas unidades.</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <small>desde</small>
+              $20.000
+            </div>
+            <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Urban%20Blend" class="product-cta" target="_blank">Consultar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="gorras img/gorro-7.jpeg" alt="Modelo 7" loading="lazy" />
+          <div class="product-badge">Disponible</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Warm Slouch</div>
+          <div class="product-colors">
+            <span class="color-tag">Cálido</span>
+          </div>
+          <div class="product-desc">Tejido denso para días fríos. Forma slouch con vuelta doble.</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <small>desde</small>
+              $18.000
+            </div>
+            <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Warm%20Slouch" class="product-cta" target="_blank">Consultar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="gorras img/gorro-8.jpeg" alt="Modelo 8" loading="lazy" />
+          <div class="product-badge">Últimas unidades</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Rusty Stripe</div>
+          <div class="product-colors">
+            <span class="color-tag">Terracota</span>
+            <span class="color-tag">Azul oscuro</span>
+          </div>
+          <div class="product-desc">Rayas sutiles en tono terracota profundo. Elegante y urbana.</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <small>desde</small>
+              $20.000
+            </div>
+            <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Rusty%20Stripe" class="product-cta" target="_blank">Consultar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="gorras img/gorro-9.jpeg" alt="Modelo 9" loading="lazy" />
+          <div class="product-badge">Disponible</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Deep Color Rib</div>
+          <div class="product-colors">
+            <span class="color-tag">Tonos profundos</span>
+          </div>
+          <div class="product-desc">Profundidad de color extraordinaria. Tejido ribbed de alta densidad.</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <small>desde</small>
+              $18.000
+            </div>
+            <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Deep%20Color%20Rib" class="product-cta" target="_blank">Consultar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="gorras img/gorro-10.jpeg" alt="Modelo 10" loading="lazy" />
+          <div class="product-badge">Serie Limitada</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Statement Slouch</div>
+          <div class="product-colors">
+            <span class="color-tag">Edición especial</span>
+          </div>
+          <div class="product-desc">La pieza más audaz de la colección. Máximo volumen y carácter.</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <small>desde</small>
+              $22.000
+            </div>
+            <a href="https://wa.me/5491100000000?text=Hola!%20Me%20interesa%20la%20Statement%20Slouch" class="product-cta" target="_blank">Consultar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HISTORIA -->
+  <section id="historia">
+    <div class="historia-inner">
+      <div class="historia-images">
+        <div class="historia-img">
+          <img src="gorras img/gorro-3.jpeg" alt="LaNik Artesanal" />
+        </div>
+        <div class="historia-img">
+          <img src="gorras img/gorro-6.jpeg" alt="LaNik Detalle" />
+        </div>
+      </div>
+      <div class="historia-text">
+        <span class="section-tag">Nuestra Historia</span>
+        <h2 class="section-title">Tejido a mano,<br>pensado para durar.</h2>
+        <p class="section-desc">
+          LaNik nació de una convicción simple: que una gorra puede ser una obra de arte accesible.
+          Cada pieza es tejida a mano en Buenos Aires, con hilos seleccionados y atención obsesiva al detalle.
+        </p>
+        <div class="values-list">
+          <div class="value-item">
+            <div class="value-icon">🧶</div>
+            <div class="value-body">
+              <div class="value-title">Artesanía sin compromiso</div>
+              <div class="value-desc">Cada gorra es tejida punto a punto. No hay atajos ni producción en serie. La calidad es innegociable.</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">✦</div>
+            <div class="value-body">
+              <div class="value-title">Exclusividad real</div>
+              <div class="value-desc">Series limitadas de verdad. Cuando se agota, no hay reposición. Cada pieza es única.</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🌿</div>
+            <div class="value-body">
+              <div class="value-title">Producción responsable</div>
+              <div class="value-desc">Producción a demanda, cero exceso de stock. Lo artesanal es inherentemente sostenible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section id="proceso">
+    <div style="max-width:1200px; margin:0 auto;">
+      <span class="section-tag">Cómo trabajamos</span>
+      <h2 class="section-title" style="color:var(--white)">Del hilo a tus manos.</h2>
+      <div class="proceso-grid">
+        <div class="proceso-step">
+          <div class="step-num">01</div>
+          <div class="step-title">Selección de hilo</div>
+          <div class="step-desc">Elegimos hilos premium que garantizan durabilidad, textura y caída perfecta según el modelo.</div>
+        </div>
+        <div class="proceso-step">
+          <div class="step-num">02</div>
+          <div class="step-title">Tejido a mano</div>
+          <div class="step-desc">Cada gorra se teje punto a punto. El proceso toma entre 4 y 10 horas según la complejidad.</div>
+        </div>
+        <div class="proceso-step">
+          <div class="step-num">03</div>
+          <div class="step-title">Control de calidad</div>
+          <div class="step-desc">Revisión exhaustiva de tensión, terminaciones y forma. Solo sale lo que pasa el estándar LaNik.</div>
+        </div>
+        <div class="proceso-step">
+          <div class="step-num">04</div>
+          <div class="step-title">Etiquetado y entrega</div>
+          <div class="step-desc">Etiqueta de cuero grabada "LaNik diseño & tejido". Empaque cuidado. Envío a todo el país.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA SCROLL -->
+  <section id="galeria" style="padding: 80px 0;">
+    <div class="section-header">
+      <div>
+        <span class="section-tag">Galería</span>
+        <h2 class="section-title" style="color:var(--white)">Cada pieza, su propia historia.</h2>
+      </div>
+    </div>
+    <div class="gallery-scroll">
+      <div class="gallery-item"><img src="gorras img/Gorro-1.jpeg" alt="LaNik 1" /></div>
+      <div class="gallery-item"><img src="gorras img/gorro-2.jpeg" alt="LaNik 2" /></div>
+      <div class="gallery-item"><img src="gorras img/gorro-3.jpeg" alt="LaNik 3" /></div>
+      <div class="gallery-item"><img src="gorras img/gorro-4.jpeg" alt="LaNik 4" /></div>
+      <div class="gallery-item"><img src="gorras img/gorro-5.jpeg" alt="LaNik 5" /></div>
+      <div class="gallery-item"><img src="gorras img/gorro-6.jpeg" alt="LaNik 6" /></div>
+      <div class="gallery-item"><img src="gorras img/gorro-7.jpeg" alt="LaNik 7" /></div>
+      <div class="gallery-item"><img src="gorras img/gorro-8.jpeg" alt="LaNik 8" /></div>
+      <div class="gallery-item"><img src="gorras img/gorro-9.jpeg" alt="LaNik 9" /></div>
+      <div class="gallery-item"><img src="gorras img/gorro-10.jpeg" alt="LaNik 10" /></div>
+    </div>
+  </section>
+
+  <!-- CONTACTO / CTA -->
+  <section id="contacto">
+    <span class="section-tag" style="display:block;text-align:center;">¿Te interesa alguna pieza?</span>
+    <h2 class="section-title">Escribinos.<br>Te respondemos hoy.</h2>
+    <p class="contact-desc">
+      Consultá disponibilidad, pedí tu talle o encargá una pieza en el color que quieras.
+      Estamos en WhatsApp e Instagram para responderte rápido.
+    </p>
+    <div class="contact-actions">
+      <a href="https://wa.me/5491100000000?text=Hola%20LaNik!%20Me%20interesa%20conocer%20los%20modelos%20disponibles." class="btn-white" target="_blank">
+        <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://instagram.com/lanik" class="btn-outline-white" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Instagram
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-name">La<span>Nik</span></div>
+        <p>Gorras tejidas 100% a mano en Buenos Aires. Diseño urbano con alma artesanal. Series limitadas.</p>
+        <div class="social-links">
+          <a href="https://instagram.com/lanik" class="social-link" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://wa.me/5491100000000" class="social-link" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#coleccion">Colección</a></li>
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/5491100000000" target="_blank">WhatsApp Business</a></li>
+          <li><a href="https://instagram.com/lanik" target="_blank">@lanik</a></li>
+          <li><a href="mailto:lanik@gmail.com">lanik@gmail.com</a></li>
+          <li><a href="#">Buenos Aires, ARG</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="max-width:1200px; margin: 0 auto;">
+      <div class="footer-bottom">
+        <p>© 2026 <span>LaNik</span> Diseño & Tejido. Buenos Aires, Argentina.</p>
+        <p>Hecho con amor artesanal 🧶</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOTANTE -->
+  <div class="wa-float">
+    <a href="https://wa.me/5491100000000?text=Hola%20LaNik!%20Me%20interesa%20conocer%20los%20modelos%20disponibles." class="wa-btn" target="_blank">
+      <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Consultar
+    </a>
+  </div>
+
+</body>
+</html>
