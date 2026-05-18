@@ -23,13 +23,13 @@
   <meta property="og:url"         content="https://edgardo-lamas.github.io/LaNik/" />
   <meta property="og:title"       content="LaNik — Diseño & Tejido Artesanal Urbano" />
   <meta property="og:description" content="Gorras tejidas 100% a mano en Buenos Aires. Series limitadas con identidad propia." />
-  <meta property="og:image"       content="https://edgardo-lamas.github.io/LaNik/gorras%20img/Gorro-1.jpeg" />
+  <meta property="og:image"       content="https://edgardo-lamas.github.io/LaNik/fotos-lanik/mod-3/Mod3-01.jpg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:title"       content="LaNik — Diseño & Tejido Artesanal Urbano" />
   <meta name="twitter:description" content="Gorras tejidas 100% a mano en Buenos Aires. Series limitadas con identidad propia." />
-  <meta name="twitter:image"       content="https://edgardo-lamas.github.io/LaNik/gorras%20img/Gorro-1.jpeg" />
+  <meta name="twitter:image"       content="https://edgardo-lamas.github.io/LaNik/fotos-lanik/mod-3/Mod3-01.jpg" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -38,7 +38,7 @@
   <!-- Performance: preconnect + preload hero image (LCP) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="image" href="gorras img/Gorro-1.jpeg" />
+  <link rel="preload" as="image" href="fotos-lanik/mod-3/Mod3-01.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
   <style>
     /* ─── RESET & BASE ─────────────────────────────────────── */
@@ -346,6 +346,34 @@
     /* ─── PRODUCTOS ────────────────────────────────────────── */
     #coleccion {
       background: var(--charcoal-mid);
+    }
+    .catalog-categories {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .cat-btn {
+      font-family: var(--font-head);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 8px 22px;
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: transparent;
+      color: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .cat-btn:hover {
+      border-color: rgba(255,255,255,0.35);
+      color: var(--white);
+    }
+    .cat-btn.active {
+      background: var(--terracota);
+      border-color: var(--terracota);
+      color: var(--white);
     }
     .products-grid {
       display: grid;
@@ -1043,11 +1071,11 @@
         </div>
       </div>
       <div class="hero-image">
-        <img src="gorras img/Gorro-1.jpeg" alt="LaNik Gorra Tejida Sage — Sage Slouch, edición limitada" class="hero-img-main" fetchpriority="high" />
+        <img src="fotos-lanik/mod-3/Mod3-01.jpg" alt="LaNik — Café Azul, gorra tejida artesanal con etiqueta LaNik visible" class="hero-img-main" fetchpriority="high" />
         <div class="hero-img-overlay">
           <div>
             <div class="hero-img-tag">Disponible ahora</div>
-            <div class="hero-img-title">Sage Slouch</div>
+            <div class="hero-img-title">Café Azul</div>
           </div>
           <div class="hero-badge-ltd">Serie Ltd.</div>
         </div>
@@ -1057,228 +1085,161 @@
 
   <!-- COLECCIÓN -->
   <section id="coleccion">
-    <div class="section-header" style="max-width:1200px; margin: 0 auto 60px;">
+    <div class="section-header" style="max-width:1200px; margin: 0 auto 40px;">
       <div>
         <span class="section-tag">Colección Actual</span>
         <h2 class="section-title" style="color:var(--white)">Cada gorra,<br>una pieza única.</h2>
       </div>
       <p class="section-desc">Series limitadas. Tejidas a mano con hilos de calidad premium. Cuando se agota, no hay reposición.</p>
     </div>
-    <div class="products-grid" style="max-width:1200px; margin:0 auto;">
 
+    <!-- Categorías — extensible para nuevas piezas -->
+    <div class="catalog-categories" style="max-width:1200px; margin: 0 auto 40px;">
+      <button class="cat-btn active" data-cat="gorras">Gorras</button>
+    </div>
+
+    <div class="products-grid" style="max-width:1200px; margin:0 auto;" data-category="gorras">
+
+
+      <!-- Mod 1 — Bicolor Slouch -->
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="gorras img/Gorro-1.jpeg" alt="Sage Slouch" loading="lazy" />
+          <img src="fotos-lanik/mod-1/Mod1-01.jpg" alt="LaNik — Bicolor Slouch, gorra tejida azul cielo y gris melange" loading="lazy" />
           <div class="product-badge">Disponible</div>
         </div>
         <div class="product-info">
-          <div class="product-name">Sage Slouch</div>
+          <div class="product-name">Bicolor Slouch</div>
           <div class="product-colors">
-            <span class="color-tag">Verde Sage</span>
+            <span class="color-tag">Azul cielo</span>
+            <span class="color-tag">Gris melange</span>
           </div>
-          <div class="product-desc">Forma holgada con textura geométrica. Punto estructurado, caída natural.</div>
+          <div class="product-desc">Forma holgada con franja bicolor. Textura estructurada punto a punto.</div>
           <div class="product-footer">
-            <div class="product-price">
-              <small>desde</small>
-              $40.000
-            </div>
-            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Sage%20Slouch" class="product-cta" target="_blank">Consultar</a>
+            <div class="product-price"><small>desde</small>$40.000</div>
+            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Bicolor%20Slouch" class="product-cta" target="_blank">Consultar</a>
           </div>
         </div>
       </div>
 
+      <!-- Mod 2 — Terracota Ribbed -->
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="gorras img/gorro-2.jpeg" alt="Modelo 2" loading="lazy" />
+          <img src="fotos-lanik/mod-2/Mod2-01.jpg" alt="LaNik — Terracota Ribbed, gorra tejida terracota y azul" loading="lazy" />
           <div class="product-badge">Disponible</div>
         </div>
         <div class="product-info">
-          <div class="product-name">Stripe Classic</div>
+          <div class="product-name">Terracota Ribbed</div>
           <div class="product-colors">
             <span class="color-tag">Terracota</span>
-            <span class="color-tag">Gris</span>
+            <span class="color-tag">Azul noche</span>
           </div>
-          <div class="product-desc">Rayas horizontales. Caída holgada con estructura firme en la base.</div>
+          <div class="product-desc">Punto ribbed bicolor en los colores icónicos de la marca. Caída suave y carácter propio.</div>
           <div class="product-footer">
-            <div class="product-price">
-              <small>desde</small>
-              $40.000
-            </div>
-            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Stripe%20Classic" class="product-cta" target="_blank">Consultar</a>
+            <div class="product-price"><small>desde</small>$40.000</div>
+            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Terracota%20Ribbed" class="product-cta" target="_blank">Consultar</a>
           </div>
         </div>
       </div>
 
+      <!-- Mod 3 — Café Azul (estrella — label LaNik visible) -->
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="gorras img/gorro-3.jpeg" alt="Modelo 3" loading="lazy" />
+          <img src="fotos-lanik/mod-3/Mod3-01.jpg" alt="LaNik — Café Azul, gorra tejida marrón y azul cielo con etiqueta artesanal" loading="lazy" />
           <div class="product-badge">Serie Limitada</div>
         </div>
         <div class="product-info">
-          <div class="product-name">Melange Slouch</div>
+          <div class="product-name">Café Azul</div>
+          <div class="product-colors">
+            <span class="color-tag">Marrón</span>
+            <span class="color-tag">Azul cielo</span>
+          </div>
+          <div class="product-desc">Slouch oversize con contraste marrón profundo y azul. Etiqueta de cuero grabada a mano.</div>
+          <div class="product-footer">
+            <div class="product-price"><small>desde</small>$40.000</div>
+            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Caf%C3%A9%20Azul" class="product-cta" target="_blank">Consultar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mod 4 — Dark Melange -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="fotos-lanik/mod-4/Mod4-01.jpg" alt="LaNik — Dark Melange, gorra tejida negro y gris urbana" loading="lazy" />
+          <div class="product-badge">Disponible</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Dark Melange</div>
+          <div class="product-colors">
+            <span class="color-tag">Negro</span>
+            <span class="color-tag">Gris melange</span>
+          </div>
+          <div class="product-desc">Punto melange en tonos oscuros. Versátil, urbana, para cualquier look.</div>
+          <div class="product-footer">
+            <div class="product-price"><small>desde</small>$40.000</div>
+            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Dark%20Melange" class="product-cta" target="_blank">Consultar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mod 5 — Paleta Otoño -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="fotos-lanik/mod-5/Mod5-01.jpg" alt="LaNik — Paleta Otoño, gorra tejida multicolor terracota teal" loading="lazy" />
+          <div class="product-badge">Serie Limitada</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Paleta Otoño</div>
           <div class="product-colors">
             <span class="color-tag">Terracota</span>
             <span class="color-tag">Teal</span>
-          </div>
-          <div class="product-desc">Efecto melange multicolor. Textura irregular que lo hace único entre todos.</div>
-          <div class="product-footer">
-            <div class="product-price">
-              <small>desde</small>
-              $40.000
-            </div>
-            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Melange%20Slouch" class="product-cta" target="_blank">Consultar</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="gorras img/gorro-4.jpeg" alt="Modelo 4" loading="lazy" />
-          <div class="product-badge">Disponible</div>
-        </div>
-        <div class="product-info">
-          <div class="product-name">Rustic Rib</div>
-          <div class="product-colors">
-            <span class="color-tag">Rústico</span>
-          </div>
-          <div class="product-desc">Punto rústico con textura pronunciada. Estética raw y urbana.</div>
-          <div class="product-footer">
-            <div class="product-price">
-              <small>desde</small>
-              $40.000
-            </div>
-            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Rustic%20Rib" class="product-cta" target="_blank">Consultar</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="gorras img/gorro-5.jpeg" alt="Modelo 5" loading="lazy" />
-          <div class="product-badge">Disponible</div>
-        </div>
-        <div class="product-info">
-          <div class="product-name">Ribbed Terracota</div>
-          <div class="product-colors">
-            <span class="color-tag">Terracota</span>
             <span class="color-tag">Gris</span>
           </div>
-          <div class="product-desc">Punto 2x2 ribbed clásico, bicolor. Definición perfecta en cada vuelta.</div>
+          <div class="product-desc">Multicolor en degradé otoñal. Cada pieza tiene una distribución de colores única.</div>
           <div class="product-footer">
-            <div class="product-price">
-              <small>desde</small>
-              $40.000
-            </div>
-            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Ribbed%20Terracota" class="product-cta" target="_blank">Consultar</a>
+            <div class="product-price"><small>desde</small>$40.000</div>
+            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Paleta%20Oto%C3%B1o" class="product-cta" target="_blank">Consultar</a>
           </div>
         </div>
       </div>
 
+      <!-- Mod 6 — Sage Geo -->
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="gorras img/gorro-6.jpeg" alt="Modelo 6" loading="lazy" />
-          <div class="product-badge">Serie Limitada</div>
-        </div>
-        <div class="product-info">
-          <div class="product-name">Urban Blend</div>
-          <div class="product-colors">
-            <span class="color-tag">Mix Urbano</span>
-          </div>
-          <div class="product-desc">Combinación de puntos y colores. Diseño exclusivo, pocas unidades.</div>
-          <div class="product-footer">
-            <div class="product-price">
-              <small>desde</small>
-              $40.000
-            </div>
-            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Urban%20Blend" class="product-cta" target="_blank">Consultar</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="gorras img/gorro-7.jpeg" alt="Modelo 7" loading="lazy" />
+          <img src="fotos-lanik/mod-6/Mod6-01.jpg" alt="LaNik — Sage Geo, gorra tejida verde sage textura geométrica" loading="lazy" />
           <div class="product-badge">Disponible</div>
         </div>
         <div class="product-info">
-          <div class="product-name">Warm Slouch</div>
+          <div class="product-name">Sage Geo</div>
           <div class="product-colors">
-            <span class="color-tag">Cálido</span>
+            <span class="color-tag">Verde sage</span>
           </div>
-          <div class="product-desc">Tejido denso para días fríos. Forma slouch con vuelta doble.</div>
+          <div class="product-desc">Textura geométrica en verde menta suave. Punto entrelazado de alta complejidad artesanal.</div>
           <div class="product-footer">
-            <div class="product-price">
-              <small>desde</small>
-              $40.000
-            </div>
-            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Warm%20Slouch" class="product-cta" target="_blank">Consultar</a>
+            <div class="product-price"><small>desde</small>$40.000</div>
+            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Sage%20Geo" class="product-cta" target="_blank">Consultar</a>
           </div>
         </div>
       </div>
 
-      <div class="product-card low-stock">
-        <div class="product-img-wrap">
-          <img src="gorras img/gorro-8.jpeg" alt="LaNik — Rusty Stripe, rayas terracota y azul oscuro" loading="lazy" />
-          <div class="product-badge">Últimas unidades</div>
-        </div>
-        <div class="product-info">
-          <div class="product-name">Rusty Stripe</div>
-          <div class="product-colors">
-            <span class="color-tag">Terracota</span>
-            <span class="color-tag">Azul oscuro</span>
-          </div>
-          <div class="product-desc">Rayas sutiles en tono terracota profundo. Elegante y urbana.</div>
-          <div class="product-footer">
-            <div class="product-price">
-              <small>desde</small>
-              $40.000
-            </div>
-            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Rusty%20Stripe" class="product-cta" target="_blank">Consultar</a>
-          </div>
-        </div>
-      </div>
-
+      <!-- Mod 7 — Pompón Natural -->
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="gorras img/gorro-9.jpeg" alt="Modelo 9" loading="lazy" />
+          <img src="fotos-lanik/mod-7/Mod7-01.jpg" alt="LaNik — Pompón Natural, gorra tejida beige con pompón artesanal" loading="lazy" />
           <div class="product-badge">Disponible</div>
         </div>
         <div class="product-info">
-          <div class="product-name">Deep Color Rib</div>
+          <div class="product-name">Pompón Natural</div>
           <div class="product-colors">
-            <span class="color-tag">Tonos profundos</span>
+            <span class="color-tag">Beige natural</span>
           </div>
-          <div class="product-desc">Profundidad de color extraordinaria. Tejido ribbed de alta densidad.</div>
+          <div class="product-desc">Ribbed clásico con pompón artesanal multicolor. La pieza más cálida e invernal de la colección.</div>
           <div class="product-footer">
-            <div class="product-price">
-              <small>desde</small>
-              $40.000
-            </div>
-            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Deep%20Color%20Rib" class="product-cta" target="_blank">Consultar</a>
+            <div class="product-price"><small>desde</small>$40.000</div>
+            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20el%20Pomp%C3%B3n%20Natural" class="product-cta" target="_blank">Consultar</a>
           </div>
         </div>
       </div>
 
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="gorras img/gorro-10.jpeg" alt="Modelo 10" loading="lazy" />
-          <div class="product-badge">Serie Limitada</div>
-        </div>
-        <div class="product-info">
-          <div class="product-name">Statement Slouch</div>
-          <div class="product-colors">
-            <span class="color-tag">Edición especial</span>
-          </div>
-          <div class="product-desc">La pieza más audaz de la colección. Máximo volumen y carácter.</div>
-          <div class="product-footer">
-            <div class="product-price">
-              <small>desde</small>
-              $40.000
-            </div>
-            <a href="https://wa.me/5491131986298?text=Hola!%20Me%20interesa%20la%20Statement%20Slouch" class="product-cta" target="_blank">Consultar</a>
-          </div>
-        </div>
-      </div>
 
     </div>
   </section>
@@ -1288,10 +1249,10 @@
     <div class="historia-inner">
       <div class="historia-images">
         <div class="historia-img">
-          <img src="gorras img/gorro-3.jpeg" alt="LaNik Artesanal" />
+          <img src="fotos-lanik/mod-2/Mod2-02.jpg" alt="LaNik — textura de tejido artesanal, detalle de punto" />
         </div>
         <div class="historia-img">
-          <img src="gorras img/gorro-6.jpeg" alt="LaNik Detalle" />
+          <img src="fotos-lanik/mod-7/Mod7-02.jpg" alt="LaNik — pompón natural artesanal, detalle de acabado" />
         </div>
       </div>
       <div class="historia-text">
@@ -1371,16 +1332,31 @@
       Deslizá para ver más
     </div>
     <div class="gallery-scroll">
-      <div class="gallery-item"><img src="gorras img/Gorro-1.jpeg" alt="LaNik — Sage Slouch, gorra tejida verde sage" loading="lazy" /></div>
-      <div class="gallery-item"><img src="gorras img/gorro-2.jpeg" alt="LaNik — gorra tejida artesanal, detalle de tejido" loading="lazy" /></div>
-      <div class="gallery-item"><img src="gorras img/gorro-3.jpeg" alt="LaNik — gorra tejida a mano, Buenos Aires" loading="lazy" /></div>
-      <div class="gallery-item"><img src="gorras img/gorro-4.jpeg" alt="LaNik — modelo tejido con textura estructurada" loading="lazy" /></div>
-      <div class="gallery-item"><img src="gorras img/gorro-5.jpeg" alt="LaNik — gorra serie limitada, diseño urbano" loading="lazy" /></div>
-      <div class="gallery-item"><img src="gorras img/gorro-6.jpeg" alt="LaNik — detalle artesanal, tejido punto a punto" loading="lazy" /></div>
-      <div class="gallery-item"><img src="gorras img/gorro-7.jpeg" alt="LaNik — Warm Slouch, gorra tejida tonos cálidos" loading="lazy" /></div>
-      <div class="gallery-item"><img src="gorras img/gorro-8.jpeg" alt="LaNik — Rusty Stripe, rayas terracota y azul oscuro" loading="lazy" /></div>
-      <div class="gallery-item"><img src="gorras img/gorro-9.jpeg" alt="LaNik — Deep Color Rib, tejido ribbed alta densidad" loading="lazy" /></div>
-      <div class="gallery-item"><img src="gorras img/gorro-10.jpeg" alt="LaNik — Statement Slouch, serie limitada" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-1/Mod1-01.jpg" alt="LaNik — Bicolor Slouch, azul cielo y gris melange" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-1/Mod1-02.jpg" alt="LaNik — Bicolor Slouch, detalle de textura bicolor" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-1/Mod1-03.jpg" alt="LaNik — Bicolor Slouch, perfil lateral" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-1/Mod1-04.jpg" alt="LaNik — Bicolor Slouch, tejido artesanal Buenos Aires" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-1/Mod1-05.jpg" alt="LaNik — Bicolor Slouch, detalle del acabado artesanal" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-2/Mod2-01.jpg" alt="LaNik — Terracota Ribbed, terracota y azul noche" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-2/Mod2-02.jpg" alt="LaNik — Terracota Ribbed, detalle ribbed artesanal" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-2/Mod2-03.jpg" alt="LaNik — Terracota Ribbed, textura de punto" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-2/Mod2-04.jpg" alt="LaNik — Terracota Ribbed, vista completa" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-3/Mod3-01.jpg" alt="LaNik — Café Azul, etiqueta artesanal visible" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-3/Mod3-02.jpg" alt="LaNik — Café Azul, marrón y azul cielo tejido a mano" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-4/Mod4-01.jpg" alt="LaNik — Dark Melange, negro y gris melange urbano" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-4/Mod4-02.jpg" alt="LaNik — Dark Melange, textura estructurada oscura" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-4/Mod4-03.jpg" alt="LaNik — Dark Melange, detalle tejido artesanal" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-5/Mod5-01.jpg" alt="LaNik — Paleta Otoño, multicolor serie limitada" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-5/Mod5-02.jpg" alt="LaNik — Paleta Otoño, terracota teal y gris" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-5/Mod5-03.jpg" alt="LaNik — Paleta Otoño, detalle colores otoñales" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-5/Mod5-04.jpg" alt="LaNik — Paleta Otoño, textura multicolor artesanal" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-6/Mod6-01.jpg" alt="LaNik — Sage Geo, verde sage textura geométrica" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-6/Mod6-02.jpg" alt="LaNik — Sage Geo, detalle patrón geométrico tejido" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-6/Mod6-03.jpg" alt="LaNik — Sage Geo, gorra artesanal verde sage" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-7/Mod7-01.jpg" alt="LaNik — Pompón Natural, beige con pompón artesanal" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-7/Mod7-02.jpg" alt="LaNik — Pompón Natural, detalle pompón hecho a mano" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-7/Mod7-03.jpg" alt="LaNik — Pompón Natural, textura beige artesanal" loading="lazy" /></div>
+      <div class="gallery-item"><img src="fotos-lanik/mod-7/Mod7-04.jpg" alt="LaNik — Pompón Natural, serie natural Buenos Aires" loading="lazy" /></div>
     </div>
     <div class="gallery-progress"><div class="gallery-progress-bar" id="galleryBar"></div></div>
   </section>
